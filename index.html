@@ -117,52 +117,43 @@
     }
     .whatsapp-float:hover { transform: scale(1.08); }
 
-   /* ===== GALERÍA ===== */
-.galeria-reel {
-  width: 100%;
-  overflow: hidden;
-}
-
-.galeria-track {
+/* ===== GALERÍA ===== */
+.galeria-swiper .swiper-slide {
   display: flex;
-  gap: 10px;
-  animation: galeriaSlide 20s linear infinite;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 250px; /* altura uniforme */
 }
 
-.galeria-track img {
-  width: 300px;
-  height: 200px;
+.galeria-swiper .swiper-slide img {
+  width: auto;       /* no forzar ancho */
+  height: 100%;      /* ocupar toda la altura */
+ 
+  border-radius: 20px;
+  /* Ajuste de imágenes del carrusel */
+.galeria-swiper .swiper-slide img {
+  width: 100%;
+  height: 250px;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 20px;
+  cursor: pointer; /* Indica que es clickeable */
+  transition: transform 0.3s;
 }
-
-@keyframes galeriaSlide {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+.galeria-swiper .swiper-slide img:hover {
+  transform: scale(1.05);
 }
-
-
-/* ===== TESTIMONIOS ===== */
-.testimonios-reel {
-  width: 100%;
-  overflow: hidden;
 }
+  .testimonios-swiper .swiper-slide {
+    display: flex;
+    justify-content: center;
+  }
 
-.testimonios-track {
-  display: flex;
-  gap: 20px;
-  animation: testiSlide 18s linear infinite;
-}
-
-.testimonio {
-  min-width: 300px;
-  background: white;
-  color: #333;
-  padding: 20px;
-  border-radius: 12px;
-  font-style: italic;
-  box-shadow: 0 0 10px #0002;
-}
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #24d1d8; /* color turquesa */
+  }
 
 @keyframes testiSlide {
   0% { transform: translateX(0); }
@@ -300,9 +291,67 @@
     </div>
   </section>
 
+<!-- ===== GALERÍA SIMPLE (Carrusel Infinito) ===== -->
+<section id="galeria" class="py-5" data-aos="fade-up">
+  <div class="container">
+    <h2 class="text-center section-title">Galería</h2>
+    <div class="swiper galeria-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="./img/p1.jpg" alt="" class="galeria-img"></div>
+        <div class="swiper-slide"><img src="./img/p2.jpg" alt="" class="galeria-img"></div>
+        <div class="swiper-slide"><img src="./img/p3.jpg" alt="" class="galeria-img"></div>
+        <div class="swiper-slide"><img src="./img/p4.jpg" alt="" class="galeria-img"></div>
+        <div class="swiper-slide"><img src="./img/p5.jpg" alt="" class="galeria-img"></div>
+        <div class="swiper-slide"><img src="./img/p6.jpg" alt="" class="galeria-img"></div>
+      </div>
+      <!-- Flechas -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </div>
+</section>
 
+<!-- ===== MODAL PARA ZOOM ===== -->
+<div class="modal fade" id="zoomModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0 text-center">
+        <img src="" id="zoomImage" class="img-fluid rounded" alt="">
+      </div>
+    </div>
+  </div>
+</div>
 
-  <!-- ===== MAPA DE GOOGLE (embed responsive) ===== -->
+<!-- ===== TESTIMONIOS (Carrusel Infinito) ===== -->
+<section id="testimonios" class="py-5" data-aos="fade-up">
+  <div class="container">
+    <h2 class="text-center section-title">Testimonios</h2>
+    <div class="swiper testimonios-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="testimonio">
+            <p>"¡Excelente servicio! Mi lomito quedó hermoso."</p>
+            <strong>- Ana</strong>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonio">
+            <p>"Llegaron puntuales y súper amables."</p>
+            <strong>- Luis</strong>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonio">
+            <p>"El mejor servicio a domicilio para mascotas."</p>
+            <strong>- Fernanda</strong>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+ <!-- ===== MAPA DE GOOGLE (embed responsive) ===== -->
   <section id="mapa" class="py-5" data-aos="fade-up">
     <div class="container">
       <div class="row">
@@ -321,89 +370,20 @@
     </div>
   </section>
 
-<!-- ===== GALERÍA REEL ===== -->
-<section id="galeria" class="py-5" data-aos="fade-up">
-  <div class="container">
-    <h2 class="text-center section-title">Galería</h2>
-
-    <div class="galeria-reel">
-      <div class="galeria-track">
-        <img src="./img/p1.jpg" alt="">
-        <img src="./img/p2.jpg" alt="">
-        <img src="./img/p3.jpg" alt="">
-        <img src="./img/p4.jpg" alt="">
-        <img src="./img/p5.jpg" alt="">
-        <img src="./img/p6.jpg" alt="">
-
-        <!-- duplicadas para loop -->
-        <img src="./img/p1.jpg" alt="">
-        <img src="./img/p2.jpg" alt="">
-        <img src="./img/p3.jpg" alt="">
-        <img src="./img/p4.jpg" alt="">
-        <img src="./img/p5.jpg" alt="">
-        <img src="./img/p6.jpg" alt="">
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== TESTIMONIOS REEL ===== -->
-<section id="testimonios" class="py-5" data-aos="fade-up">
-  <div class="container">
-    <h2 class="text-center section-title">Testimonios</h2>
-
-    <div class="testimonios-reel">
-      <div class="testimonios-track">
-
-        <div class="testimonio">
-          <p>"¡Excelente servicio! Mi lomito quedó hermoso."</p><strong>- Ana</strong>
-        </div>
-
-        <div class="testimonio">
-          <p>"Llegaron puntuales y súper amables."</p><strong>- Luis</strong>
-        </div>
-
-        <div class="testimonio">
-          <p>"El mejor servicio a domicilio para mascotas."</p><strong>- Fernanda</strong>
-        </div>
-
-        <!-- duplicados -->
-        <div class="testimonio">
-          <p>"¡Excelente servicio! Mi lomito quedó hermoso."</p><strong>- Ana</strong>
-        </div>
-
-        <div class="testimonio">
-          <p>"Llegaron puntuales y súper amables."</p><strong>- Luis</strong>
-        </div>
-
-        <div class="testimonio">
-          <p>"El mejor servicio a domicilio para mascotas."</p><strong>- Fernanda</strong>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
   <!-- ===== FOOTER MEJORADO CON REDES ===== -->
-  <footer data-aos="fade-up">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-6 text-md-start text-center">
-          <h5>Barber Dog</h5>
-          
-        </div>
-        <div class="col-md-6 text-md-end text-center social">
-          <a href="https://www.instagram.com/groomerbarberdog/" title="Instagram"><i class="bi bi-instagram"></i></a>
-          <a href="https://www.facebook.com/profile.php?id=61581535974293&rdid=Tp1fDkLOfZgHLrH5&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F178JL9CsKK%2F#" title="Facebook"><i class="bi bi-facebook"></i></a>
-          <a href="#" title="TikTok"><i class=""></i></a>
-          <a href="#" title="YouTube"><i class=""></i></a>
-        </div>
-      </div>
-      <hr style="border-color: rgba(255,255,255,0.15); margin: 1rem 0;">
-      <p class="small mb-0">© <span id="anio"></span> Barber Dog - Todos los derechos reservados</p>
+<footer data-aos="fade-up">
+  <div class="container text-center">
+    <h5>Barber Dog</h5>
+    <div class="social my-2">
+      <a href="https://www.instagram.com/groomerbarberdog/" title="Instagram"><i class="bi bi-instagram"></i></a>
+      <a href="https://www.facebook.com/profile.php?id=61581535974293&rdid=Tp1fDkLOfZgHLrH5&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F178JL9CsKK%2F#" title="Facebook"><i class="bi bi-facebook"></i></a>
+      <a href="#" title="TikTok"><i class=""></i></a>
+      <a href="#" title="YouTube"><i class=""></i></a>
     </div>
-  </footer>
+    <hr style="border-color: rgba(255,255,255,0.15); margin: 1rem 0;">
+    <p class="small mb-0">© <span id="anio"></span> Barber Dog - Todos los derechos reservados</p>
+  </div>
+</footer>
 
   <!-- BOTÓN WHATSAPP FIJO (ICONO) -->
   <a
@@ -605,5 +585,68 @@
     }
 
   </script>
+  <!-- ===== SWIPER JS & CSS ===== -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+<script>
+  // Carrusel Galería
+  const galeriaSwiper = new Swiper('.galeria-swiper', {
+    loop: true,
+    slidesPerView: 3,
+    spaceBetween: 20,
+    speed: 800, // velocidad normal
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: '.galeria-swiper .swiper-button-next',
+      prevEl: '.galeria-swiper .swiper-button-prev',
+    },
+    breakpoints: {
+      0: { slidesPerView: 1 },
+      576: { slidesPerView: 2 },
+      992: { slidesPerView: 3 },
+    }
+  });
+
+  // Carrusel Testimonios
+  const testimoniosSwiper = new Swiper('.testimonios-swiper', {
+    loop: true,
+    slidesPerView: 3,
+    spaceBetween: 20,
+    speed: 800, // velocidad normal
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: '.testimonios-swiper .swiper-button-next',
+      prevEl: '.testimonios-swiper .swiper-button-prev',
+    },
+    breakpoints: {
+      0: { slidesPerView: 1 },
+      576: { slidesPerView: 1 },
+      768: { slidesPerView: 2 },
+      992: { slidesPerView: 3 },
+    }
+  });
+</script>
+<script>
+// Captura todas las imágenes de la galería
+const galeriaImgs = document.querySelectorAll('.galeria-img');
+galeriaImgs.forEach(img => {
+  img.addEventListener('click', () => {
+    const modalImg = document.getElementById('zoomImage');
+    modalImg.src = img.src; // cambia la imagen del modal
+    const zoomModal = new bootstrap.Modal(document.getElementById('zoomModal'));
+    zoomModal.show();
+  });
+});
+</script>
 </body>
 </html>
