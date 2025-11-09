@@ -69,7 +69,52 @@
       box-shadow: 0 0 20px rgba(0,0,0,0.12);
       margin-top: -30px;
     }
+.servicio-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  z-index: 0;
+  transition: transform 0.3s;
+  background: white; /* fondo de la card */
+}
 
+/* Borde giratorio solo alrededor */
+.servicio-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 3px; /* grosor del marco */
+  border-radius: 20px;
+  background: conic-gradient(from 0deg, yellow, orange, yellow, orange, yellow);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: 1;
+  pointer-events: none; /* para no interferir con clicks */
+  opacity: 0; /* solo visible al hover */
+  transition: opacity 0.3s;
+  animation: girar 3s linear infinite;
+}
+
+/* Mostrar borde al hover */
+.servicio-card:hover::before {
+  opacity: 1;
+}
+
+/* Girar animación */
+@keyframes girar {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Efecto leve de levantar card */
+.servicio-card:hover {
+  transform: translateY(-5px);
+}
     .servicio-info {
       display: none;
       margin-top: 15px;
@@ -202,11 +247,42 @@
   </style>
 </head>
 <body>
+    <!-- ===== NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg navbar-dark" style="background: var(--turq-dark);">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="#hero">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">Sobre Nosotros</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#servicios">Servicios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#galeria">Galería</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#testimonios">Testimonios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#mapa">Ubicación</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
   <!-- ===== HERO ===== -->
 <section class="hero text-center py-5" data-aos="fade-down">
   <img src="./img/WhatsApp Image 2025-11-06 at 19.13.10 (1).jpeg" alt="Barber Dog" class="hero-img">
-  <p class="lead">¡Estética móvil para tu mejor amigo!</p>
+  <p class="lead">¡Estética canina movil!</p>
 
   <!-- Botón agendar rápido -->
   <div class="mt-3">
@@ -421,7 +497,7 @@
   <!-- BOTÓN WHATSAPP FIJO (ICONO) -->
   <a
     id="whatsappFloat"
-    href="https://wa.me/5210000000000?text=Hola!%20Agenda%20tu%20cita%20con%20nosotros%20-%20Barber%20Dog"
+   href="https://wa.me/5215512949913?text=Hola%20!%20Agenda%20tu%20cita%20con%20nosotros%20-%20Barber%20Dog"
     class="whatsapp-float"
     target="_blank"
     title="WhatsApp Barber Dog"
@@ -504,7 +580,7 @@
       const direccion = document.getElementById('direccion').value.trim();
       const mensaje = document.getElementById('mensaje').value.trim();
 
-      const phoneNumber = '5210000000000'; // <-- reemplaza por tu número (formato internacional sin +)
+      const phoneNumber = '5215512949913'; // <-- reemplaza por tu número (formato internacional sin +)
       let text = `Hola Barber Dog 👋%0A`;
       text += `*Nombre:* ${encodeURIComponent(nombre)}%0A`;
       text += `*Tel:* ${encodeURIComponent(telefono)}%0A`;
@@ -531,7 +607,7 @@
         return;
       }
 
-      const phoneNumber = '527293108476'; // <-- reemplaza por tu número (formato internacional sin +)
+    const phoneNumber = '5215512949913'; // número internacional correcto
       // Mensaje legible
       let msg = `Hola Barber Dog 👋%0A`;
       msg += `*Solicitud de cita*%0A`;
