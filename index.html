@@ -32,25 +32,46 @@
       font-family: Arial, sans-serif;
       scroll-behavior: smooth;
     }
+/* ===== HERO LOGO ===== */
+.hero-logo-box {
+  width: 100%;
+  max-width: 800px;
+  height: 380px;
+  margin: 0 auto 20px;
 
-    /* Imagen circular hero */
-    .hero-img {
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 5px solid var(--turq);
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
-    }
-    .hero-img {
-    animation: parpadeo 1.4s infinite;
-  }
+  display: flex;
+  justify-content: flex-start;   /* ✅ Logo a la izquierda */
+  align-items: center;
 
-  @keyframes parpadeo {
-    0%   { opacity: 1; }
-    50%  { opacity: 0.3; }
-    100% { opacity: 1; }
-  }
+  background-image: url("./img/p1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: relative;
+  padding-left: 20px; /* margen para que no pegue al borde */
+}
+
+/* ===== LOGO ===== */
+.hero-img {
+  width: 150px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--turq);
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  z-index: 2;
+
+  animation: parpadeo 1.4s infinite;
+}
+
+/* ===== ANIMACIÓN ===== */
+@keyframes parpadeo {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
 
     .hero h1, .hero p { color: #fff; }
 
@@ -278,11 +299,15 @@
     </div>
   </div>
 </nav>
-
-  <!-- ===== HERO ===== -->
+<!-- ===== HERO ===== -->
 <section class="hero text-center py-5" data-aos="fade-down">
-  <img src="./img/WhatsApp Image 2025-11-06 at 19.13.10 (1).jpeg" alt="Barber Dog" class="hero-img">
+  
+  <div class="hero-logo-box">
+    <img src="./img/WhatsApp Image 2025-11-06 at 19.13.10 (1).jpeg" alt="Barber Dog" class="hero-img">
+  </div>
+
   <p class="lead">¡Estética canina movil!</p>
+  <p>"spa canino para tu mejor amigo"</p>
 
   <!-- Botón agendar rápido -->
   <div class="mt-3">
@@ -290,8 +315,8 @@
       Agendar cita
     </button>
   </div>
-</section>
 
+</section>
   <!-- ===== SOBRE NOSOTROS ===== -->
   <section id="about" class="py-4 text-center" data-aos="fade-up">
     <div class="container">
@@ -310,55 +335,24 @@
     <h2 class="text-center section-title">SERVICIO A DOMICILIO</h2>
 
     <div class="row g-4">
-
-      <!-- SERVICIO 1 -->
-      <div class="col-md-4">
-        <div class="servicio-card text-center">
-          <img src="./img/—Pngtree—playful dog in a foam_19848206.png" class="servicio-img" alt="Baño">
-          <div class="cloud-box p-3">
-            <h4>Estética Profesional</h4>
-            <button class="btn btn-dark mt-2" data-info-target="#info1">Ver más</button>
-            <ul class="servicio-info" id="info1">
-              <li><span class="paw">🐶</span>Incluye baño</li>
-              <li><span class="paw">🐶</span>Secado profesional</li>
-              <li><span class="paw">🐶</span>Shampoo especial</li>
-              <li><span class="paw">🐶</span>Perfume</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- SERVICIO 2 -->
-      <div class="col-md-4">
-        <div class="servicio-card text-center">
-          <img src="./img/—Pngtree—dental toothbrush dog veterinary sausage_14213207.png" class="servicio-img" alt="Corte">
-          <div class="cloud-box p-3">
-            <h4>Limpieza Dental</h4>
-            <button class="btn btn-dark mt-2" data-info-target="#info2">Ver más</button>
-            <ul class="servicio-info" id="info2">
-              <li><span class="paw">🐶</span>Limpieza básica</li>
-              <li><span class="paw">🐶</span>Revisión de encías</li>
-              <li><span class="paw">🐶</span>Pasta especial</li>
-              <li><span class="paw">🐶</span>Eliminación de placa</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
+      
+<!-- SERVICIO 1 -->
+<div class="col-md-4">
+  <div class="servicio-card text-center">
+    <img src="./img/—Pngtree—playful dog in a foam_19848206.png" class="servicio-img" alt="Baño">
+    <div class="cloud-box p-3">
+      <h4>Estética Profesional</h4>
+      <button class="btn btn-dark mt-2 ver-btn" data-img="./img/barber.jpg">Ver más</button>
+    </div>
+  </div>
+</div>
       <!-- SERVICIO 3 -->
       <div class="col-md-4">
         <div class="servicio-card text-center">
           <img src="./img/vacunacion-perro-doggysvet.png" class="servicio-img" alt="Spa">
           <div class="cloud-box p-3">
             <h4>Vacunas</h4>
-            <button class="btn btn-dark mt-2" data-info-target="#info3">Ver más</button>
-            <ul class="servicio-info" id="info3">
-              <li><span class="paw">🐶</span>Puppy</li>
-              <li><span class="paw">🐶</span>Quíntuple</li>
-              <li><span class="paw">🐶</span>Séxtuple</li>
-              <li><span class="paw">🐶</span>Bordetella</li>
-              <li><span class="paw">🐶</span>Rabia</li>
-            </ul>
+            <button class="btn btn-dark mt-2 ver-btn" data-img="img/servicio-3.jpg">Ver más</button>
           </div>
         </div>
       </div>
@@ -369,28 +363,7 @@
           <img src="./img/urna.png" class="servicio-img" alt="Cremación">
           <div class="cloud-box p-3">
             <h4>Cremación</h4>
-            <button class="btn btn-dark mt-2" data-info-target="#info4">Ver más</button>
-            <ul class="servicio-info" id="info4">
-              <li><span class="paw" style="color:#24d1d8;">🐾</span> Cremación individual:
-                <ul>
-                  <li>Recolección y traslado de la mascota</li>
-                  <li>Urna clásica con placa grabada</li>
-                  <li>Huellita de la mascota en tinta</li>
-                  <li>Mechón de pelo de la mascota</li>
-                  <li>Certificado de cremación</li>
-                  <li>Link de acceso para ver el inicio de cremación en tiempo real (si se solicita)</li>
-                </ul>
-              </li>
-              <li><span class="paw" style="color:#24d1d8;">🐾</span> Cremación comunitaria:
-                <ul>
-                  <li>Recolección y traslado de la mascota</li>
-                  <li>Huellita de la mascota en tinta</li>
-                  <li>Mechón de pelo de la mascota</li>
-                  <li>Certificado de cremación</li>
-                  <li>Urna simbólica opcional con costo extra (urna clásica con placa grabada, sin cenizas)</li>
-                </ul>
-              </li>
-            </ul>
+            <button class="btn btn-dark mt-2 ver-btn" data-img="img/servicio-4.jpg">Ver más</button>
           </div>
         </div>
       </div>
@@ -398,6 +371,17 @@
     </div> <!-- row -->
   </div> <!-- container -->
 </section>
+
+
+<!-- MODAL Bootstrap -->
+<div class="modal fade" id="imgModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center">
+      <img id="modalImg" src="" class="img-fluid" style="border-radius: 10px;">
+    </div>
+  </div>
+</div>
+
 
 
 <!-- ===== GALERÍA SIMPLE (Carrusel Infinito) ===== -->
@@ -461,22 +445,9 @@
   </div>
 </section>
  <!-- ===== MAPA DE GOOGLE (embed responsive) ===== -->
-  <section id="mapa" class="py-5" data-aos="fade-up">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto">
-          <!-- Reemplaza el src con el embed de tu ubicación (Google Maps -> Compartir -> Insertar mapa) -->
-          <div class="map-responsive">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.197050711406!2d-99.16238458466201!3d19.42053014309625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff4ef0b1e9b7%3A0x8a6e7a6b5f9b0d7c!2sCentro%20de%20la%20CDMX!5e0!3m2!1ses!2smx!4v1700000000000"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
+  <section>
+    <h1>En Todo Valle de Toluca</h1>
+
   </section>
 
   <!-- ===== FOOTER MEJORADO CON REDES ===== -->
@@ -504,50 +475,77 @@
   >
     <i class="bi bi-whatsapp"></i>
   </a>
+<!-- ========== MODAL AGENDAR (Formulario rápido + .ics) ========== -->
+<div class="modal fade" id="modalAgendar" tabindex="-1" aria-labelledby="modalAgendarLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
 
-  <!-- ========== MODAL AGENDAR (Formulario rápido + .ics) ========== -->
-  <div class="modal fade" id="modalAgendar" tabindex="-1" aria-labelledby="modalAgendarLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Agendar cita</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-        </div>
-        <div class="modal-body">
-          <form id="agendarForm" onsubmit="handleAgendar(event)">
-            <div class="mb-3">
-              <label class="form-label">Nombre</label>
-              <input type="text" id="ag_nombre" class="form-control" required>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Teléfono</label>
-              <input type="tel" id="ag_telefono" class="form-control" placeholder="55 0000 0000" required>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Servicio</label>
-              <select id="ag_servicio" class="form-select" required>
-                <option>Estética Profesional</option>
-                <option>Limpieza Dental</option>
-                <option>Vacunas</option>
-              </select>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Fecha</label>
-              <input type="date" id="ag_fecha" class="form-control" required>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Hora</label>
-              <input type="time" id="ag_hora" class="form-control" required>
-            </div>
-
-            <div class="d-flex justify-content-between">
-              <button type="submit" class="btn btn-success">Enviar por WhatsApp</button>
-            </div>
-          </form>
-        </div>
+      <div class="modal-header">
+        <h5 class="modal-title">Agendar cita</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
       </div>
+
+      <div class="modal-body">
+
+        <form id="agendarForm" onsubmit="handleAgendar(event)">
+
+          <!-- Nombre -->
+          <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input type="text" id="ag_nombre" class="form-control" required>
+          </div>
+
+          <!-- Teléfono -->
+          <div class="mb-3">
+            <label class="form-label">Teléfono</label>
+            <input type="tel" id="ag_telefono" class="form-control" placeholder="55 0000 0000" required>
+          </div>
+
+          <!-- Servicio -->
+          <div class="mb-3">
+            <label class="form-label">Servicio</label>
+            <select id="ag_servicio" class="form-select" required>
+              <option>Estética Profesional</option>
+              <option>Vacunas</option>
+            </select>
+          </div>
+
+          <!-- ✅ Ubicación -->
+          <div class="mb-3">
+            <label class="form-label">Ubicación de hogar de lomito</label>
+            <input type="text" id="ag_ubicacion" class="form-control" placeholder="Ej. Calle 123, CDMX" required>
+          </div>
+
+          <!-- ✅ Raza -->
+          <div class="mb-3">
+            <label class="form-label">Raza de tu lomito 🐶</label>
+            <input type="text" id="ag_raza" class="form-control" placeholder="Ej. Pomerania" required>
+          </div>
+
+          <!-- Fecha -->
+          <div class="mb-3">
+            <label class="form-label">Fecha</label>
+            <input type="date" id="ag_fecha" class="form-control" required>
+          </div>
+
+          <!-- Hora -->
+          <div class="mb-3">
+            <label class="form-label">Hora</label>
+            <input type="time" id="ag_hora" class="form-control" required>
+          </div>
+
+          <!-- Botón -->
+          <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-success">Enviar por WhatsApp</button>
+          </div>
+
+        </form>
+      </div>
+
     </div>
   </div>
+</div>
+
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -593,39 +591,43 @@
       window.open(url, '_blank');
     }
 
-    // -------- AGENDAR FORM (modal) ----------
-    function handleAgendar(e){
-      e.preventDefault();
-      const nombre = document.getElementById('ag_nombre').value.trim();
-      const telefono = document.getElementById('ag_telefono').value.trim();
-      const servicio = document.getElementById('ag_servicio').value;
-      const fecha = document.getElementById('ag_fecha').value;
-      const hora = document.getElementById('ag_hora').value;
+// -------- AGENDAR FORM (modal) ----------
+function handleAgendar(e){
+  e.preventDefault();
 
-      if(!fecha || !hora){
-        alert('Selecciona fecha y hora válidas.');
-        return;
-      }
+  const nombre     = document.getElementById('ag_nombre').value.trim();
+  const telefono   = document.getElementById('ag_telefono').value.trim();
+  const servicio   = document.getElementById('ag_servicio').value;
+  const ubicacion  = document.getElementById('ag_ubicacion').value.trim();
+  const raza       = document.getElementById('ag_raza').value.trim();
+  const fecha      = document.getElementById('ag_fecha').value;
+  const hora       = document.getElementById('ag_hora').value;
 
-    const phoneNumber = '5215512949913'; // número internacional correcto
-      // Mensaje legible
-      let msg = `Hola Barber Dog 👋%0A`;
-      msg += `*Solicitud de cita*%0A`;
-      msg += `Nombre: ${encodeURIComponent(nombre)}%0A`;
-      msg += `Tel: ${encodeURIComponent(telefono)}%0A`;
-      msg += `Servicio: ${encodeURIComponent(servicio)}%0A`;
-      msg += `Fecha: ${encodeURIComponent(fecha)}%0A`;
-      msg += `Hora: ${encodeURIComponent(hora)}%0A`;
+  if(!fecha || !hora){
+    alert('Selecciona fecha y hora válidas.');
+    return;
+  }
 
-      const url = `https://wa.me/${phoneNumber}?text=${msg}`;
-      // Abrir WhatsApp
-      window.open(url, '_blank');
+  const phoneNumber = '5215512949913';
 
-      // Cerrar modal
-      const modalEl = document.getElementById('modalAgendar');
-      const modal = bootstrap.Modal.getInstance(modalEl);
-      if(modal) modal.hide();
-    }
+  let msg = ` *Nueva cita BarberDog*%0A`;
+  msg += ` *Cliente:* ${encodeURIComponent(nombre)}%0A`;
+  msg += ` *Teléfono:* ${encodeURIComponent(telefono)}%0A`;
+  msg += ` *Servicio:* ${encodeURIComponent(servicio)}%0A`;
+  msg += ` *Ubicación:* ${encodeURIComponent(ubicacion)}%0A`;
+  msg += ` *Raza:* ${encodeURIComponent(raza)}%0A`;
+  msg += ` *Fecha:* ${encodeURIComponent(fecha)}%0A`;
+  msg += ` *Hora:* ${encodeURIComponent(hora)}%0A`;
+  msg += `%0A Gracias por agendar con BarberDog`;
+
+  const url = `https://wa.me/${phoneNumber}?text=${msg}`;
+  window.open(url, '_blank');
+
+  const modalEl = document.getElementById('modalAgendar');
+  const modal = bootstrap.Modal.getInstance(modalEl);
+  if(modal) modal.hide();
+}
+
 
     // -------- .ics download generator ----------
     document.getElementById('btnDownloadIcs').addEventListener('click', function(){
@@ -756,6 +758,17 @@ galeriaImgs.forEach(img => {
     zoomModal.show();
   });
 });
+</script>
+<script>
+  // Abrir modal con imagen
+  document.querySelectorAll(".ver-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const imgPath = btn.getAttribute("data-img");
+      document.getElementById("modalImg").src = imgPath;
+      const modal = new bootstrap.Modal(document.getElementById('imgModal'));
+      modal.show();
+    });
+  });
 </script>
 </body>
 </html>
