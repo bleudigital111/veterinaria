@@ -335,41 +335,42 @@
     <h2 class="text-center section-title">SERVICIO A DOMICILIO</h2>
 
     <div class="row g-4">
-      
-<!-- SERVICIO 1 -->
-<div class="col-md-4">
-  <div class="servicio-card text-center">
-    <img src="./img/—Pngtree—playful dog in a foam_19848206.png" class="servicio-img" alt="Baño">
-    <div class="cloud-box p-3">
-      <h4>Estética Profesional</h4>
-      <button class="btn btn-dark mt-2 ver-btn" data-img="./img/barber.jpg">Ver más</button>
-    </div>
-  </div>
-</div>
-      <!-- SERVICIO 3 -->
+
+      <!-- SERVICIO 1 -->
       <div class="col-md-4">
         <div class="servicio-card text-center">
-          <img src="./img/vacunacion-perro-doggysvet.png" class="servicio-img" alt="Spa">
+          <img src="./img/—Pngtree—playful dog in a foam_19848206.png" class="servicio-img" alt="Baño">
           <div class="cloud-box p-3">
-            <h4>Vacunas</h4>
-            <button class="btn btn-dark mt-2 ver-btn" data-img="img/servicio-3.jpg">Ver más</button>
+            <h4>Estética Profesional</h4>
+            <button class="btn btn-dark mt-2 ver-btn" data-img="./img/barber.jpg">Ver más</button>
           </div>
         </div>
       </div>
 
-      <!-- SERVICIO 4 -->
+      <!-- SERVICIO 2 -->
+      <div class="col-md-4">
+        <div class="servicio-card text-center">
+          <img src="./img/vacunacion-perro-doggysvet.png" class="servicio-img" alt="Vacunas">
+          <div class="cloud-box p-3">
+            <h4>Vacunas</h4>
+            <button class="btn btn-dark mt-2 ver-btn" data-img="./img/vacuna.jpeg">Ver más</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICIO 3 -->
       <div class="col-md-4">
         <div class="servicio-card text-center">
           <img src="./img/urna.png" class="servicio-img" alt="Cremación">
           <div class="cloud-box p-3">
             <h4>Cremación</h4>
-            <button class="btn btn-dark mt-2 ver-btn" data-img="img/servicio-4.jpg">Ver más</button>
+            <button class="btn btn-dark mt-2 ver-btn" data-img="./img/cremacion.jpeg">Ver más</button>
           </div>
         </div>
       </div>
 
-    </div> <!-- row -->
-  </div> <!-- container -->
+    </div>
+  </div>
 </section>
 
 
@@ -768,6 +769,22 @@ galeriaImgs.forEach(img => {
       const modal = new bootstrap.Modal(document.getElementById('imgModal'));
       modal.show();
     });
+  });
+</script>
+<script>
+  document.querySelectorAll(".ver-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const imgPath = btn.getAttribute("data-img");
+      document.getElementById("modalImg").src = imgPath;
+      const modal = new bootstrap.Modal(document.getElementById('imgModal'));
+      modal.show();
+    });
+  });
+
+  // ✅ Cerrar si se hace clic fuera de la imagen
+  document.getElementById("imgModal").addEventListener("click", (e) => {
+    if (e.target.id === "modalImg") return; // si es la imagen → no cerramos
+    bootstrap.Modal.getInstance(e.currentTarget).hide();
   });
 </script>
 </body>
